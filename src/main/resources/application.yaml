@@ -10,14 +10,29 @@ spring:
     url: jdbc:h2:mem:chat
     username: admin
     password:
+  thymeleaf:
+    prefix: classpath:/static/
 
-#   thymeleaf:
-#     prefix: /WEB-INF/
-#     suffix: .html
-#     view-names: thymeleaf/*
-#
+
 
 server:
   port: 9090
+
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+  endpoints:
+    web:
+      exposure:
+        incule: prometheus
+
 
 

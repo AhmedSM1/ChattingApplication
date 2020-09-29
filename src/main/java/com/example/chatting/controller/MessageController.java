@@ -20,16 +20,17 @@ public class MessageController {
 
     private MessagingService messagingService;
     private final String USERNAME = "username";
+
     @Autowired
     public MessageController(MessagingService messagingService) {
         this.messagingService = messagingService;
     }
 
-//    @GetMapping
-//    @ResponseStatus(HttpStatus.OK)
-//    public String indexPage(){
-//        return "index";
-//    }
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public String indexPage(){
+        return "index";
+    }
 
 //
 //    @PostMapping("/sendMessage")
@@ -46,21 +47,19 @@ public class MessageController {
 
     @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
-    public Message sendMessage(@Payload Message message){
+    public Message sendMessage(@Payload Message message) {
         return message;
     }
-    
+
     @MessageMapping("/chat.addUser")
     @SendTo("/topic/public")
     public Message addUser(@Payload Message message,
-                           SimpMessageHeaderAccessor headerAccessor){
+                           SimpMessageHeaderAccessor headerAccessor) {
 
         //get the user and then add to websocket session
-        headerAccessor.getSessionAttributes().put(USERNAME,message.getSender());
+        headerAccessor.getSessionAttributes().put(USERNAME, message.getSender());
         return message;
     }
-    
-    
-    
-    
+
+
 }

@@ -36,12 +36,12 @@ public class WebSocketEventListeners {
 
 
     @EventListener
-    public void handleWebSocketDisconnectListener(SessionDisconnectEvent event){
+    public void handleWebSocketDisconnectListener(SessionDisconnectEvent event) {
         StompHeaderAccessor stompHeaderAccessor = StompHeaderAccessor.wrap(event.getMessage());
 
         String username = (String) stompHeaderAccessor.getSessionAttributes().get(USERNAME);
 
-        if(username != null) {
+        if (username != null) {
             logger.info("User Disconnected : " + username);
 
             Message message = new Message();
@@ -52,7 +52,6 @@ public class WebSocketEventListeners {
         }
 
     }
-
 
 
 }

@@ -23,5 +23,5 @@ public class ChattingAppConfig {
         this.messagingTemplate = messagingTemplate;
     }
 
-    
+
 }

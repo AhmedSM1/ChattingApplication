@@ -12,7 +12,4 @@ public interface MessagingService {
     List<Message> getAllMessage();
 
 
-
-
-
 }

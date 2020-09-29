@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class Message implements Serializable {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long messageId;
     private MessageType type;
     private String content;

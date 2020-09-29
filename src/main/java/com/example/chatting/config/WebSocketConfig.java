@@ -25,8 +25,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     }
 
 
-
-    
 }
 //Why do we need STOMP? Well, WebSocket is just a communication protocol.
 //        It doesn’t define things like - How to send a message only to users
